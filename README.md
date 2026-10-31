@@ -5,7 +5,7 @@ Aplicação da disciplina GraphQL e Design Patterns (FIAP PosTech).
 ```
 make run      sobe a API em http://localhost:5000
 make build    compila a solução
-make medir    compara REST e GraphQL com o k6
+make medir    compara REST e GraphQL com o k6 e abre o relatório
 make clean    limpa os artefatos
 ```
 
