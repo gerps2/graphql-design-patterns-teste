@@ -9,6 +9,6 @@ public static class ObterRentabilidade
     {
         public void Map(IEndpointRouteBuilder app) =>
             app.MapGet("/web/usuarios/{id:int}/rentabilidade", (int id) =>
-                BancoEmMemoria.Rentabilidades.Where(r => r.UsuarioId == id));
+                BancoEmMemoria.BuscarRentabilidade(id));
     }
 }

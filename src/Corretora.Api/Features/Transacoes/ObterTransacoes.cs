@@ -9,6 +9,6 @@ public static class ObterTransacoes
     {
         public void Map(IEndpointRouteBuilder app) =>
             app.MapGet("/web/usuarios/{id:int}/transacoes", (int id) =>
-                BancoEmMemoria.Transacoes.Where(t => t.UsuarioId == id));
+                BancoEmMemoria.BuscarTransacoes(id));
     }
 }

@@ -9,7 +9,7 @@ public static class ObterUsuario
     {
         public void Map(IEndpointRouteBuilder app) =>
             app.MapGet("/web/usuarios/{id:int}", (int id) =>
-                BancoEmMemoria.Usuarios.FirstOrDefault(u => u.Id == id) is { } usuario
+                BancoEmMemoria.BuscarUsuario(id) is { } usuario
                     ? Results.Ok(usuario)
                     : Results.NotFound());
     }

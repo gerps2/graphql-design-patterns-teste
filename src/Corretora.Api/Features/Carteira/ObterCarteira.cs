@@ -9,6 +9,6 @@ public static class ObterCarteira
     {
         public void Map(IEndpointRouteBuilder app) =>
             app.MapGet("/web/usuarios/{id:int}/carteira", (int id) =>
-                BancoEmMemoria.Posicoes.Where(p => p.UsuarioId == id));
+                BancoEmMemoria.BuscarPosicoes(id));
     }
 }

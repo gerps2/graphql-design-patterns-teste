@@ -23,14 +23,14 @@ public static class ObterTelaInicial
     {
         public UsuarioCompleto? GetUsuario(int id)
         {
-            var usuario = BancoEmMemoria.Usuarios.FirstOrDefault(u => u.Id == id);
+            var usuario = BancoEmMemoria.BuscarUsuario(id);
             if (usuario is null) return null;
 
             return new UsuarioCompleto(
                 usuario.Id, usuario.Nome, usuario.Email, usuario.Telefone, usuario.Cpf, usuario.Endereco,
-                BancoEmMemoria.Posicoes.Where(p => p.UsuarioId == id).ToList(),
-                BancoEmMemoria.Transacoes.Where(t => t.UsuarioId == id).ToList(),
-                BancoEmMemoria.Rentabilidades.Where(r => r.UsuarioId == id).ToList());
+                BancoEmMemoria.BuscarPosicoes(id),
+                BancoEmMemoria.BuscarTransacoes(id),
+                BancoEmMemoria.BuscarRentabilidade(id));
         }
     }
 }

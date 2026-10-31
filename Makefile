@@ -1,4 +1,6 @@
-.PHONY: run build medir clean
+.PHONY: run build medir test clean
+
+AULA ?= 02
 
 ifeq ($(OS),Windows_NT)
 ABRIR = powershell -NoProfile -Command Start-Process
@@ -15,8 +17,11 @@ build:
 	dotnet build Corretora.sln
 
 medir:
-	k6 run --quiet scripts/medir-aula-01.js
-	$(ABRIR) relatorio-aula-01.html
+	k6 run --quiet scripts/medir-aula-$(AULA).js
+	$(ABRIR) relatorio-aula-$(AULA).html
+
+test:
+	dotnet test Corretora.sln
 
 clean:
 	dotnet clean Corretora.sln
