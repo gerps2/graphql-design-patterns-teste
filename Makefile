@@ -1,6 +1,6 @@
 .PHONY: run build medir test clean
 
-AULA ?= 02
+AULA ?= 03
 
 ifeq ($(OS),Windows_NT)
 ABRIR = powershell -NoProfile -Command Start-Process

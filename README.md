@@ -14,9 +14,10 @@ make clean    limpa os artefatos
 |---|---|---|
 | 1 | Fundamentos de GraphQL em .NET | `feat/aula-01-fundamentos` |
 | 2 | Schemas e o padrão Resolver | `feat/aula-02-schemas-resolvers` |
+| 3 | Queries e CQRS | `feat/aula-03-queries-cqrs` |
 
 ## Abrir na IDE
 
 Abra `Corretora.sln` no Visual Studio 2026 ou no Rider e rode o perfil `http`. No VS Code, use `make run` e a extensão REST Client. A API sobe sempre em `http://localhost:5000`, e os arquivos de `flows/` funcionam nas três ferramentas.
 
-Para repetir a medição da Aula 1, use `make medir AULA=01`.
+Para repetir a medição de outra aula, use `make medir AULA=02`.

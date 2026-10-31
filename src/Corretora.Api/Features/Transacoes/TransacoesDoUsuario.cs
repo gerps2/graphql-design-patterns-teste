@@ -7,5 +7,7 @@ namespace Corretora.Api.Features.Transacoes;
 public static partial class TransacoesDoUsuario
 {
     public static List<Transacao> GetTransacoes([Parent] Usuario usuario, IBanco banco) =>
-        banco.BuscarTransacoes(usuario.Id);
+        banco.BuscarTransacoes(usuario.Id)
+            .OrderByDescending(t => t.Data)
+            .ToList();
 }

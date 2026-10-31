@@ -17,6 +17,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "flows", "flows", "{A1F0C3D2-6B7E-4E11-9C55-0D2C4B7A1E02}"
 	ProjectSection(SolutionItems) = preProject
 		flows\tela-inicial.http = flows\tela-inicial.http
+		flows\regra-de-leitura.http = flows\regra-de-leitura.http
 		flows\usuario-por-campos.http = flows\usuario-por-campos.http
 	EndProjectSection
 EndProject
@@ -24,8 +25,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A1F0
 	ProjectSection(SolutionItems) = preProject
 		scripts\medir-aula-01.js = scripts\medir-aula-01.js
 		scripts\medir-aula-02.js = scripts\medir-aula-02.js
+		scripts\medir-aula-03.js = scripts\medir-aula-03.js
 		scripts\relatorio-aula-01.js = scripts\relatorio-aula-01.js
 		scripts\relatorio-aula-02.js = scripts\relatorio-aula-02.js
+		scripts\relatorio-aula-03.js = scripts\relatorio-aula-03.js
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"

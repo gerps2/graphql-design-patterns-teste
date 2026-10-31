@@ -9,6 +9,8 @@ public static class ObterTransacoes
     {
         public void Map(IEndpointRouteBuilder app) =>
             app.MapGet("/web/usuarios/{id:int}/transacoes", (int id, IBanco banco) =>
-                banco.BuscarTransacoes(id));
+                banco.BuscarTransacoes(id)
+                    .OrderByDescending(t => t.Data)
+                    .ToList());
     }
 }

@@ -13,10 +13,11 @@ type Endereco {
   cidade: String!
 }
 
-type Posicao {
+type PosicaoNaCarteira {
   ativo: String!
   quantidade: Decimal!
   saldo: Decimal!
+  participacao: Decimal!
 }
 
 type PosicaoRentabilidade {
@@ -33,7 +34,7 @@ type Transacao {
 }
 
 type Usuario {
-  carteira: [Posicao!]!
+  carteira: [PosicaoNaCarteira!]!
   rentabilidade: [PosicaoRentabilidade!]!
   transacoes: [Transacao!]!
   id: Int!

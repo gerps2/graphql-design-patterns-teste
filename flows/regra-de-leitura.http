@@ -1,0 +1,17 @@
+### Carteira pelo REST
+GET http://localhost:5000/web/usuarios/1/carteira
+
+### Carteira pelo GraphQL
+POST http://localhost:5000/graphql
+Content-Type: application/json
+
+{"query":"{ usuario(id: 1) { carteira { ativo saldo participacao } } }"}
+
+### Transações pelo REST, mais recentes primeiro
+GET http://localhost:5000/web/usuarios/1/transacoes
+
+### Transações pelo GraphQL, mais recentes primeiro
+POST http://localhost:5000/graphql
+Content-Type: application/json
+
+{"query":"{ usuario(id: 1) { transacoes { id data ativo } } }"}
