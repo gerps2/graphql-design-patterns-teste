@@ -7,5 +7,5 @@ public record Usuario(
     string Nome,
     string Email,
     string Telefone,
-    string Cpf,
+    [property: GraphQLIgnore] string Cpf,
     Endereco Endereco);
