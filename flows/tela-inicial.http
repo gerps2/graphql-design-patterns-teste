@@ -9,3 +9,9 @@ GET http://localhost:5000/web/usuarios/1/transacoes
 
 ### 4 de 4: rentabilidade
 GET http://localhost:5000/web/usuarios/1/rentabilidade
+
+### A tela inteira em uma viagem
+POST http://localhost:5000/graphql
+Content-Type: application/json
+
+{"query":"query TelaInicial { usuario(id: 1) { nome carteira { ativo saldo } transacoes { ativo valor } rentabilidade { ativo percentualMes } } }"}
