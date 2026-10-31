@@ -13,6 +13,7 @@ const consultas = [
     nome: 'Tela inteira',
     query: '{ usuario(id: 1) { nome carteira { ativo } transacoes { ativo } rentabilidade { ativo } } }',
   },
+  { nome: 'Cinco usuários e carteiras', query: '{ usuarios { nome carteira { ativo } } }' },
 ];
 
 function medir(query) {

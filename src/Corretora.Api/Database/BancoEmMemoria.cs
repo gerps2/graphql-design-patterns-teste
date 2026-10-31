@@ -15,6 +15,12 @@ public sealed class BancoEmMemoria : IBanco
         return Usuarios.FirstOrDefault(u => u.Id == id);
     }
 
+    public List<Usuario> BuscarUsuarios()
+    {
+        Interlocked.Increment(ref _buscas);
+        return Usuarios;
+    }
+
     public List<Posicao> BuscarPosicoes(int usuarioId)
     {
         Interlocked.Increment(ref _buscas);
@@ -41,6 +47,12 @@ public sealed class BancoEmMemoria : IBanco
             new Endereco("Rua das Flores", 10, "São Paulo")),
         new(2, "Bruno Lima", "bruno@corretora.com", "11 99999-0002", "987.654.321-00",
             new Endereco("Av. Paulista", 1000, "São Paulo")),
+        new(3, "Carla Dias", "carla@corretora.com", "11 99999-0003", "111.222.333-44",
+            new Endereco("Rua Augusta", 200, "São Paulo")),
+        new(4, "Diego Rocha", "diego@corretora.com", "11 99999-0004", "555.666.777-88",
+            new Endereco("Rua da Paz", 30, "Campinas")),
+        new(5, "Elisa Melo", "elisa@corretora.com", "11 99999-0005", "999.888.777-66",
+            new Endereco("Av. Brasil", 500, "Santos")),
     ];
 
     private readonly List<Posicao> Posicoes =
@@ -49,6 +61,9 @@ public sealed class BancoEmMemoria : IBanco
         new(1, "ITUB4", 50, 1620.00m),
         new(1, "HGLG11", 10, 1590.00m),
         new(2, "VALE3", 30, 1830.00m),
+        new(3, "PETR4", 20, 770.00m),
+        new(4, "ITUB4", 40, 1296.00m),
+        new(5, "HGLG11", 5, 795.00m),
     ];
 
     private readonly List<Transacao> Transacoes =
