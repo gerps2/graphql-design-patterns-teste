@@ -1,0 +1,57 @@
+schema {
+  query: Query
+}
+
+type Query {
+  usuario(id: Int!): Usuario
+  usuarios: [Usuario!]!
+}
+
+type Endereco {
+  rua: String!
+  numero: Int!
+  cidade: String!
+}
+
+type Posicao {
+  ativo: String!
+  quantidade: Decimal!
+  saldo: Decimal!
+}
+
+type PosicaoRentabilidade {
+  ativo: String!
+  percentualMes: Decimal!
+}
+
+type Transacao {
+  id: Int!
+  ativo: String!
+  tipo: TipoTransacao!
+  valor: Decimal!
+  data: LocalDate!
+}
+
+type Usuario {
+  carteira: [Posicao!]!
+  rentabilidade: [PosicaoRentabilidade!]!
+  transacoes: [Transacao!]!
+  id: Int!
+  nome: String!
+  email: String!
+  telefone: String!
+  endereco: Endereco!
+}
+
+enum TipoTransacao {
+  COMPRA
+  VENDA
+}
+
+"The `Decimal` scalar type represents a decimal floating-point number with high precision."
+scalar Decimal
+  @specifiedBy(url: "https://scalars.graphql.org/chillicream/decimal.html")
+
+"The `LocalDate` scalar type represents a date without time or time zone information."
+scalar LocalDate
+  @specifiedBy(url: "https://scalars.graphql.org/chillicream/local-date.html")
