@@ -8,7 +8,7 @@ public static class ObterCarteira
     public sealed class Endpoint : IEndpoint
     {
         public void Map(IEndpointRouteBuilder app) =>
-            app.MapGet("/web/usuarios/{id:int}/carteira", (int id) =>
-                BancoEmMemoria.BuscarPosicoes(id));
+            app.MapGet("/web/usuarios/{id:int}/carteira", (int id, IBanco banco) =>
+                banco.BuscarPosicoes(id));
     }
 }

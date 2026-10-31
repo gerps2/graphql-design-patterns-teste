@@ -5,37 +5,37 @@ using Corretora.Api.Features.Usuarios;
 
 namespace Corretora.Api.Database;
 
-public static class BancoEmMemoria
+public sealed class BancoEmMemoria : IBanco
 {
-    private static int _buscas;
+    private int _buscas;
 
-    public static Usuario? BuscarUsuario(int id)
+    public Usuario? BuscarUsuario(int id)
     {
         Interlocked.Increment(ref _buscas);
         return Usuarios.FirstOrDefault(u => u.Id == id);
     }
 
-    public static List<Posicao> BuscarPosicoes(int usuarioId)
+    public List<Posicao> BuscarPosicoes(int usuarioId)
     {
         Interlocked.Increment(ref _buscas);
         return Posicoes.Where(p => p.UsuarioId == usuarioId).ToList();
     }
 
-    public static List<Transacao> BuscarTransacoes(int usuarioId)
+    public List<Transacao> BuscarTransacoes(int usuarioId)
     {
         Interlocked.Increment(ref _buscas);
         return Transacoes.Where(t => t.UsuarioId == usuarioId).ToList();
     }
 
-    public static List<PosicaoRentabilidade> BuscarRentabilidade(int usuarioId)
+    public List<PosicaoRentabilidade> BuscarRentabilidade(int usuarioId)
     {
         Interlocked.Increment(ref _buscas);
         return Rentabilidades.Where(r => r.UsuarioId == usuarioId).ToList();
     }
 
-    public static int LerEZerarBuscas() => Interlocked.Exchange(ref _buscas, 0);
+    public int LerEZerarBuscas() => Interlocked.Exchange(ref _buscas, 0);
 
-    private static readonly List<Usuario> Usuarios =
+    private readonly List<Usuario> Usuarios =
     [
         new(1, "Ana Souza", "ana@corretora.com", "11 99999-0001", "123.456.789-00",
             new Endereco("Rua das Flores", 10, "São Paulo")),
@@ -43,7 +43,7 @@ public static class BancoEmMemoria
             new Endereco("Av. Paulista", 1000, "São Paulo")),
     ];
 
-    private static readonly List<Posicao> Posicoes =
+    private readonly List<Posicao> Posicoes =
     [
         new(1, "PETR4", 100, 3850.00m),
         new(1, "ITUB4", 50, 1620.00m),
@@ -51,7 +51,7 @@ public static class BancoEmMemoria
         new(2, "VALE3", 30, 1830.00m),
     ];
 
-    private static readonly List<Transacao> Transacoes =
+    private readonly List<Transacao> Transacoes =
     [
         new(1, 1, "PETR4", TipoTransacao.Compra, 1925.00m, new DateOnly(2026, 10, 20)),
         new(1, 2, "ITUB4", TipoTransacao.Compra, 810.00m, new DateOnly(2026, 10, 22)),
@@ -59,7 +59,7 @@ public static class BancoEmMemoria
         new(2, 4, "VALE3", TipoTransacao.Compra, 1830.00m, new DateOnly(2026, 10, 25)),
     ];
 
-    private static readonly List<PosicaoRentabilidade> Rentabilidades =
+    private readonly List<PosicaoRentabilidade> Rentabilidades =
     [
         new(1, "PETR4", 2.4m),
         new(1, "ITUB4", 1.1m),

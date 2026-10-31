@@ -9,6 +9,6 @@ public static class ObterBuscas
     public sealed class Endpoint : IEndpoint
     {
         public void Map(IEndpointRouteBuilder app) =>
-            app.MapGet("/diagnostico/buscas", () => new { buscas = BancoEmMemoria.LerEZerarBuscas() });
+            app.MapGet("/diagnostico/buscas", (IBanco banco) => new { buscas = banco.LerEZerarBuscas() });
     }
 }

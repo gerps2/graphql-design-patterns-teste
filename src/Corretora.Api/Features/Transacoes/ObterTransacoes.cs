@@ -8,7 +8,7 @@ public static class ObterTransacoes
     public sealed class Endpoint : IEndpoint
     {
         public void Map(IEndpointRouteBuilder app) =>
-            app.MapGet("/web/usuarios/{id:int}/transacoes", (int id) =>
-                BancoEmMemoria.BuscarTransacoes(id));
+            app.MapGet("/web/usuarios/{id:int}/transacoes", (int id, IBanco banco) =>
+                banco.BuscarTransacoes(id));
     }
 }

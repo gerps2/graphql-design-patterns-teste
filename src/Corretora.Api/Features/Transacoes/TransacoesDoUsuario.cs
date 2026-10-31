@@ -6,6 +6,6 @@ namespace Corretora.Api.Features.Transacoes;
 [ObjectType<Usuario>]
 public static partial class TransacoesDoUsuario
 {
-    public static List<Transacao> GetTransacoes([Parent] Usuario usuario) =>
-        BancoEmMemoria.BuscarTransacoes(usuario.Id);
+    public static List<Transacao> GetTransacoes([Parent] Usuario usuario, IBanco banco) =>
+        banco.BuscarTransacoes(usuario.Id);
 }
