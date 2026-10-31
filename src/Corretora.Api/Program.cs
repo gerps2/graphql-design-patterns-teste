@@ -1,12 +1,17 @@
 using System.Reflection;
+using System.Text.Json.Serialization;
 using Corretora.Api.Common;
-using Corretora.Api.Features.TelaInicial;
+
+[assembly: Module("Corretora")]
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.ConfigureHttpJsonOptions(options =>
+    options.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
 builder.Services
     .AddGraphQLServer()
-    .AddQueryType<ObterTelaInicial.Query>();
+    .AddCorretora();
 
 var app = builder.Build();
 

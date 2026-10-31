@@ -53,10 +53,10 @@ public static class BancoEmMemoria
 
     private static readonly List<Transacao> Transacoes =
     [
-        new(1, 1, "PETR4", "Compra", 1925.00m, new DateOnly(2026, 10, 20)),
-        new(1, 2, "ITUB4", "Compra", 810.00m, new DateOnly(2026, 10, 22)),
-        new(1, 3, "HGLG11", "Venda", 318.00m, new DateOnly(2026, 10, 28)),
-        new(2, 4, "VALE3", "Compra", 1830.00m, new DateOnly(2026, 10, 25)),
+        new(1, 1, "PETR4", TipoTransacao.Compra, 1925.00m, new DateOnly(2026, 10, 20)),
+        new(1, 2, "ITUB4", TipoTransacao.Compra, 810.00m, new DateOnly(2026, 10, 22)),
+        new(1, 3, "HGLG11", TipoTransacao.Venda, 318.00m, new DateOnly(2026, 10, 28)),
+        new(2, 4, "VALE3", TipoTransacao.Compra, 1830.00m, new DateOnly(2026, 10, 25)),
     ];
 
     private static readonly List<PosicaoRentabilidade> Rentabilidades =

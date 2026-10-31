@@ -6,7 +6,8 @@ using Corretora.Api.Features.Usuarios;
 
 namespace Corretora.Api.Features.TelaInicial;
 
-public static class ObterTelaInicial
+[QueryType]
+public static partial class ObterTelaInicial
 {
     public record UsuarioCompleto(
         int Id,
@@ -19,18 +20,15 @@ public static class ObterTelaInicial
         List<Transacao> Transacoes,
         List<PosicaoRentabilidade> Rentabilidade);
 
-    public class Query
+    public static UsuarioCompleto? GetUsuario(int id)
     {
-        public UsuarioCompleto? GetUsuario(int id)
-        {
-            var usuario = BancoEmMemoria.BuscarUsuario(id);
-            if (usuario is null) return null;
+        var usuario = BancoEmMemoria.BuscarUsuario(id);
+        if (usuario is null) return null;
 
-            return new UsuarioCompleto(
-                usuario.Id, usuario.Nome, usuario.Email, usuario.Telefone, usuario.Cpf, usuario.Endereco,
-                BancoEmMemoria.BuscarPosicoes(id),
-                BancoEmMemoria.BuscarTransacoes(id),
-                BancoEmMemoria.BuscarRentabilidade(id));
-        }
+        return new UsuarioCompleto(
+            usuario.Id, usuario.Nome, usuario.Email, usuario.Telefone, usuario.Cpf, usuario.Endereco,
+            BancoEmMemoria.BuscarPosicoes(id),
+            BancoEmMemoria.BuscarTransacoes(id),
+            BancoEmMemoria.BuscarRentabilidade(id));
     }
 }
