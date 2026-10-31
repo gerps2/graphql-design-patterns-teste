@@ -13,7 +13,7 @@ public static class ObterTelaInicial
         string Nome,
         string Email,
         string Telefone,
-        string Cpf,
+        [property: GraphQLIgnore] string Cpf,
         Endereco Endereco,
         List<Posicao> Carteira,
         List<Transacao> Transacoes,
